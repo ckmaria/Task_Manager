@@ -1,7 +1,4 @@
-// ============================================================
-// components/TaskTable.jsx
-// Tableau d'affichage des tâches avec actions (modifier / supprimer)
-// ============================================================
+============================================================
 
 import React from 'react';
 
