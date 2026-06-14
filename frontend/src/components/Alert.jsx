@@ -1,7 +1,4 @@
-// ============================================================
-// components/Alert.jsx
-// Petit composant pour afficher des notifications (succès / erreur)
-// ============================================================
+
 
 import React from 'react';
 
