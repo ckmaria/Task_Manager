@@ -1,7 +1,4 @@
-// ============================================================
-// components/Dashboard.jsx
-// Affiche les statistiques globales des tâches
-// ============================================================
+
 
 import React from 'react';
 
