@@ -1,7 +1,3 @@
-// ============================================================
-// components/ConfirmDialog.jsx
-// Boîte de dialogue de confirmation avant suppression
-// ============================================================
 
 import React from 'react';
 
