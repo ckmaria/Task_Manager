@@ -1,7 +1,4 @@
-// ============================================================
-// App.jsx
-// Composant principal de l'application TaskManager
-// ============================================================
+
 
 import React, { useState, useEffect } from 'react';
 import TaskTable from './components/TaskTable';
@@ -17,20 +14,18 @@ function App() {
     const [stats, setStats] = useState({ total: 0, enCours: 0, terminees: 0 });
     const [loading, setLoading] = useState(true);
 
-    // États pour les modales
+   
     const [showForm, setShowForm] = useState(false);
     const [taskToEdit, setTaskToEdit] = useState(null);
     const [taskToDelete, setTaskToDelete] = useState(null);
 
-    // État pour les filtres
+   
     const [filterStatus, setFilterStatus] = useState('Toutes');
 
     // État pour les notifications
     const [alert, setAlert] = useState({ type: '', message: '' });
 
-    // ------------------------------------------------------------
-    // Chargement initial des données
-    // ------------------------------------------------------------
+   
     useEffect(() => {
         fetchTasks();
         fetchStats();
@@ -62,9 +57,7 @@ function App() {
         setTimeout(() => setAlert({ type: '', message: '' }), 4000);
     };
 
-    // ------------------------------------------------------------
-    // Gestion de l'ajout / modification
-    // ------------------------------------------------------------
+ 
     const handleOpenAddForm = () => {
         setTaskToEdit(null);
         setShowForm(true);
@@ -100,9 +93,7 @@ function App() {
         }
     };
 
-    // ------------------------------------------------------------
-    // Gestion de la suppression
-    // ------------------------------------------------------------
+  
     const handleAskDelete = (task) => {
         setTaskToDelete(task);
     };
@@ -123,9 +114,7 @@ function App() {
         }
     };
 
-    // ------------------------------------------------------------
-    // Filtrage des tâches par statut
-    // ------------------------------------------------------------
+   
     const filteredTasks = tasks.filter((task) => {
         if (filterStatus === 'Toutes') return true;
         return task.statut === filterStatus;
