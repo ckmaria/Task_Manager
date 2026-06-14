@@ -1,7 +1,3 @@
-// ============================================================
-// services/api.js
-// Instance Axios centralisée pour communiquer avec l'API TaskManager
-// ============================================================
 
 import axios from 'axios';
 
