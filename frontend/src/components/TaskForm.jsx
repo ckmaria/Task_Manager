@@ -1,7 +1,4 @@
-// ============================================================
-// components/TaskForm.jsx
-// Formulaire d'ajout / modification d'une tâche (modal)
-// ============================================================
+
 
 import React, { useState, useEffect } from 'react';
 
