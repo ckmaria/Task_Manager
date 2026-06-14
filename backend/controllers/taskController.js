@@ -1,19 +1,13 @@
-// ============================================================
-// controllers/taskController.js
-// Contrôleur "Task" - Contient la logique métier des routes
-// ============================================================
+
 
 const TaskModel = require('../models/taskModel');
 
-// Statuts autorisés pour une tâche
+
 const STATUTS_VALIDES = ['En cours', 'Terminée'];
 
 const TaskController = {
 
-    /**
-     * GET /tasks
-     * Retourne la liste de toutes les tâches
-     */
+  
     getAllTasks: async (req, res) => {
         try {
             const tasks = await TaskModel.getAllTasks();
@@ -31,10 +25,7 @@ const TaskController = {
         }
     },
 
-    /**
-     * GET /tasks/:id
-     * Retourne une tâche précise (utilitaire complémentaire)
-     */
+
     getTaskById: async (req, res) => {
         try {
             const { id } = req.params;
@@ -56,11 +47,7 @@ const TaskController = {
         }
     },
 
-    /**
-     * POST /tasks/addTask
-     * Ajoute une nouvelle tâche
-     * Body attendu : { titre, description, statut (optionnel), date_creation (optionnel) }
-     */
+
     addTask: async (req, res) => {
         try {
             const { titre, description, statut, date_creation } = req.body;
@@ -114,11 +101,7 @@ const TaskController = {
         }
     },
 
-    /**
-     * PUT /tasks/updateTask/:id
-     * Modifie une tâche existante
-     * Body attendu : { titre, description, statut }
-     */
+  
     updateTask: async (req, res) => {
         try {
             const { id } = req.params;
@@ -128,13 +111,12 @@ const TaskController = {
                 return res.status(400).json({ success: false, message: 'Identifiant invalide' });
             }
 
-            // Vérifier que la tâche existe
+           
             const existingTask = await TaskModel.getTaskById(id);
             if (!existingTask) {
                 return res.status(404).json({ success: false, message: 'Tâche non trouvée' });
             }
 
-            // --------- Validation des données ---------
             if (!titre || titre.trim() === '') {
                 return res.status(400).json({
                     success: false,
@@ -178,10 +160,7 @@ const TaskController = {
         }
     },
 
-    /**
-     * DELETE /tasks/deleteTask/:id
-     * Supprime une tâche par son identifiant
-     */
+    
     deleteTask: async (req, res) => {
         try {
             const { id } = req.params;
@@ -210,10 +189,7 @@ const TaskController = {
         }
     },
 
-    /**
-     * GET /tasks/stats
-     * Retourne des statistiques pour le tableau de bord
-     */
+    
     getStats: async (req, res) => {
         try {
             const stats = await TaskModel.getStats();
