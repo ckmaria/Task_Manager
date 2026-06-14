@@ -1,0 +1,413 @@
+/* ============================================================
+   App.css - Styles principaux de l'application TaskManager
+   Design moderne, coloré et responsive
+   ============================================================ */
+
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5a4bd1;
+    --secondary: #00cec9;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #e74c3c;
+    --danger-dark: #c0392b;
+    --bg-light: #f4f6fb;
+    --text-dark: #2d3142;
+    --text-muted: #6b7280;
+    --border-radius: 14px;
+    --shadow: 0 4px 16px rgba(108, 92, 231, 0.12);
+}
+
+/* ---------------- Layout général ---------------- */
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    background: linear-gradient(135deg, #6c5ce7 0%, #00cec9 100%);
+    color: #fff;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.25);
+}
+
+.app-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.app-header p {
+    margin-top: 0.4rem;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.app-main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 1.2rem;
+    background: #2d3142;
+    color: #cfd2dc;
+    font-size: 0.85rem;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    margin: 1.8rem 0 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    border-left: 5px solid var(--primary);
+    padding-left: 0.6rem;
+}
+
+/* ---------------- Dashboard ---------------- */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    font-size: 2.2rem;
+}
+
+.stat-info h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.stat-info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.stat-total h3 { color: var(--primary); }
+.stat-progress h3 { color: var(--warning); }
+.stat-done h3 { color: var(--success); }
+.stat-percent h3 { color: var(--secondary); }
+
+/* ---------------- Toolbar ---------------- */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.filters label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.filters select {
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    border: 1.5px solid #dcdde1;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1.3rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6c5ce7, #00cec9);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 14px rgba(108, 92, 231, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #e8eaf0;
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: #d8dbe5;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 4px 14px rgba(231, 76, 60, 0.4);
+}
+
+.btn-icon {
+    background: transparent;
+    border-radius: 8px;
+    padding: 0.35rem 0.55rem;
+    font-size: 1.05rem;
+}
+
+.btn-edit:hover { background: #eef0ff; }
+.btn-delete:hover { background: #ffeceb; }
+
+/* ---------------- Table ---------------- */
+.table-wrapper {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+    margin-top: 0.5rem;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.task-table thead {
+    background: linear-gradient(135deg, #6c5ce7, #00cec9);
+    color: #fff;
+}
+
+.task-table th, .task-table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.task-table tbody tr {
+    border-bottom: 1px solid #f0f1f5;
+    transition: background 0.15s ease;
+}
+
+.task-table tbody tr:hover {
+    background: #f7f8fc;
+}
+
+.cell-title {
+    font-weight: 600;
+}
+
+.cell-description {
+    max-width: 280px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cell-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* ---------------- Badges ---------------- */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.badge-progress {
+    background: #fff4dc;
+    color: #b8860b;
+}
+
+.badge-done {
+    background: #d3f9ed;
+    color: #00936f;
+}
+
+/* ---------------- Empty state ---------------- */
+.empty-state {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.loading-text {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
+}
+
+/* ---------------- Modal ---------------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 49, 66, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal {
+    background: #fff;
+    border-radius: var(--border-radius);
+    padding: 1.8rem;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal h2 {
+    margin-bottom: 1.2rem;
+    color: var(--text-dark);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+}
+
+.error-text {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+}
+
+.modal-confirm p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* ---------------- Alert ---------------- */
+.alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    animation: modalIn 0.2s ease;
+}
+
+.alert-success {
+    background: #d3f9ed;
+    color: #00936f;
+}
+
+.alert-error {
+    background: #ffe3e1;
+    color: #c0392b;
+}
+
+.alert-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: inherit;
+    line-height: 1;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 600px) {
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cell-description {
+        max-width: 120px;
+    }
+}

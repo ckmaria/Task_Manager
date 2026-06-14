@@ -1,0 +1,174 @@
+{
+  "info": {
+    "name": "TaskManager API",
+    "description": "Collection Postman pour tester l'API REST TaskManager (Node.js + Express + MySQL)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "taskId",
+      "value": "1",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET - Récupérer toutes les tâches",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tasks",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Statistiques (Dashboard)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tasks/stats",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "stats"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Récupérer une tâche par ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tasks/{{taskId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Ajouter une tâche",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titre\": \"Préparer la soutenance\",\n  \"description\": \"Finaliser le rapport et les slides du projet TaskManager\",\n  \"statut\": \"En cours\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tasks/addTask",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "addTask"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Ajouter une tâche (validation erreur - titre manquant)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Tâche sans titre\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tasks/addTask",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "addTask"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT - Modifier une tâche",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titre\": \"Préparer la soutenance (mise à jour)\",\n  \"description\": \"Rapport terminé, slides en cours de finalisation\",\n  \"statut\": \"Terminée\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tasks/updateTask/{{taskId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "updateTask", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT - Modifier une tâche inexistante (404)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titre\": \"Tâche fantôme\",\n  \"description\": \"Cette tâche n'existe pas\",\n  \"statut\": \"En cours\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/tasks/updateTask/9999",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "updateTask", "9999"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Supprimer une tâche",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tasks/deleteTask/{{taskId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "deleteTask", "{{taskId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Supprimer une tâche inexistante (404)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tasks/deleteTask/9999",
+          "host": ["{{baseUrl}}"],
+          "path": ["tasks", "deleteTask", "9999"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
