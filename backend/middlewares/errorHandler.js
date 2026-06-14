@@ -1,9 +1,4 @@
-// ============================================================
-// middlewares/errorHandler.js
-// Gestion centralisée des erreurs et des routes non trouvées
-// ============================================================
 
-// Middleware pour les routes non trouvées (404)
 const notFound = (req, res, next) => {
     res.status(404).json({
         success: false,
@@ -11,7 +6,7 @@ const notFound = (req, res, next) => {
     });
 };
 
-// Middleware global de gestion des erreurs
+
 const errorHandler = (err, req, res, next) => {
     console.error('Erreur interceptée par errorHandler :', err.stack);
 
